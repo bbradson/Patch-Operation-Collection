@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>GeneratorOperation</name>
+	<author>bradson</author>
+	<packageId>bs.generator.operation</packageId>
+	<description>Patch operations to generate defs and more patch operations</description>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+</ModMetaData>

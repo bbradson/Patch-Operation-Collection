@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Generate a standing lamp for every chunk def, use the chunk as ingredient, and have the lamp glow in the chunk's color -->
+	<Operation Class="GeneratorOperation.DefGenerator">
+		<xpath>Defs/ThingDef[@ParentName="ChunkRockBase"]</xpath>
+		<value><![CDATA[
+ 			<ThingDef ParentName="StandingLampBase" >
+    			<defName>StandingLamp{defName/text()}</defName>
+    			<label>{label/text()} lamp</label>
+    			<description>An electrical standing lamp that lights an area. People need light to move and work at full speed. This variant is made of {label/text()}s and emits glow which matches their color. Makes nearby beds a little bit more comfortable.</description>
+    			<designationHotKey>Misc11</designationHotKey>
+				<costList Inherit="False">
+					<{defName/text()}>3</{defName/text()}>
+				</costList>
+				<comps>
+					<li Class="CompProperties_Glower">
+						<glowRadius>12</glowRadius>
+						<glowColor>{graphicData/color/text()}</glowColor>
+						<colorPickerEnabled>false</colorPickerEnabled>
+						<darklightToggle>false</darklightToggle>
+					</li>
+					<li Class="CompProperties_Facility">
+						<statOffsets>
+							<Comfort>0.02</Comfort>
+						</statOffsets>
+						<maxSimultaneous>1</maxSimultaneous>
+					</li>
+				</comps>
+			</ThingDef>
+		]]></value>
+	</Operation>
+
+	<!-- Add the generated lamps to every linkable that accepts dressers -->
+	<Operation Class="GeneratorOperation.PatchGenerator">
+		<xpath>Defs/ThingDef[@ParentName="ChunkRockBase"]</xpath>
+		<value><![CDATA[
+			<Operation Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef/comps/li/linkableFacilities[li="Dresser"]</xpath>
+				<value>
+					<li>StandingLamp{defName/text()}</li>
+				</value>
+			</Operation>
+		]]></value>
+	</Operation>
+</Patch>
