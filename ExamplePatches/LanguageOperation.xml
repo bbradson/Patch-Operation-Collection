@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Change the market value of raw potatoes from 1.1 to 0.9 for anyone playing on english -->
+	<Operation Class="LanguageOperation.Conditional">
+		<debug>true</debug> <!-- Remove this before releasing any mod to the workshop -->
+		<language>English</language>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RawPotatoes"]/statBases/MarketValue/text()</xpath>
+			<value>0.9</value>
+		</match>
+	</Operation>
+
+	<!-- Add a flammability factor of 1.6 to raw potatoes for anyone not playing on german -->
+	<Operation Class="LanguageOperation.Conditional">
+		<debug>true</debug> <!-- See above. Don't include debug logging in workshop mods -->
+		<language>German</language>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="RawPotatoes"]/statBases</xpath>
+			<value>
+				<Flammability>1.6</Flammability>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<!-- Change the mass of hay from 0.014 to 0.02 for anyone playing on french and set its market value from 0.6 to 0.5 for everyone else -->
+	<Operation Class="LanguageOperation.Conditional">
+		<debug>true</debug> <!-- debug logging. Set this to false or remove -->
+		<language>French</language>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="Hay"]/statBases/Mass/text()</xpath>
+			<value>0.02</value>
+		</match>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="Hay"]/statBases/MarketValue/text()</xpath>
+			<value>0.5</value>
+		</nomatch>
+	</Operation>
+</Patch>

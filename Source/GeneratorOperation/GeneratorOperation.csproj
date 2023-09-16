@@ -2,14 +2,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<Authors>bradson</Authors>
-		<Copyright>Copyright (c) 2023 bradson</Copyright>
 		<TargetFramework>net48</TargetFramework>
 		<LangVersion>preview</LangVersion>
-		<OutputPath>..\Assemblies\</OutputPath>
+		<OutDir>..\..\Assemblies\</OutDir>
 		<Nullable>enable</Nullable>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 		<Optimize>true</Optimize>
-		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>preview-all</AnalysisLevel>
 		<DebugSymbols>true</DebugSymbols>

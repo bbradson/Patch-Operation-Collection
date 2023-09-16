@@ -1,7 +1,10 @@
-// Copyright (c) 2023 bradson
-// This Source Code Form is subject to the terms of the MIT license.
-// If a copy of the license was not distributed with this file,
-// You can obtain one at https://opensource.org/licenses/MIT/.
+// Written in 2023 by bradson
+// To the extent possible under law, the author(s) have dedicated all
+// copyright and related and neighboring rights to this software to the
+// public domain worldwide. This software is distributed without any
+// warranty. You should have received a copy of the CC0 Public Domain
+// Dedication along with this software. If not, see
+// http://creativecommons.org/publicdomain/zero/1.0/.
 
 namespace GeneratorOperation;
 
@@ -12,7 +15,7 @@ public class PatchGenerator : GeneratorBase
 
 	protected override bool ApplyResultingNode(XmlDocument xmlDocument, XmlNode matchNode, XmlNode valueChild)
 	{
-		var patch = DirectXmlToObject.ObjectFromXml<PatchOperation>(valueChild, doPostLoad: false);
+		var patch = DirectXmlToObject.ObjectFromXml<PatchOperation>(valueChild, false);
 		patch.sourceFile = sourceFile;
 		var result = patch.Apply(xmlDocument);
 

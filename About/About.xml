@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>GeneratorOperation</name>
+	<name>Patch Operation Collection</name>
 	<author>bradson</author>
-	<packageId>bs.generator.operation</packageId>
-	<description>Patch operations to generate defs and more patch operations</description>
+	<packageId>patch.operation.collection</packageId>
+	<description>Various patch operations to enable types of patches that would normally not be possible through xml alone</description>
 	<supportedVersions>
 		<li>1.4</li>
 	</supportedVersions>
