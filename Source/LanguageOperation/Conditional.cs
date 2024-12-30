@@ -30,7 +30,7 @@ public class Conditional : PatchOperation
 		{
 			Log.Message($"Running '{this}' from file '{sourceFile}' with target language '{
 				language}' and currently active language '{Prefs.LangFolderName}'. This is considered '{(
-					LanguageMatches ? "match" : "nomatch")}' and leads to '{
+					LanguageMatches ? nameof(match) : nameof(nomatch))}' and leads to '{
 					(LanguageMatches ? match : nomatch).ToStringSafe()}' running.");
 		}
 
