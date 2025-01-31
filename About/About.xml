@@ -6,5 +6,6 @@
 	<description>Various patch operations to enable types of patches that would normally not be possible through xml alone</description>
 	<supportedVersions>
 		<li>1.4</li>
+		<li>1.5</li>
 	</supportedVersions>
 </ModMetaData>
