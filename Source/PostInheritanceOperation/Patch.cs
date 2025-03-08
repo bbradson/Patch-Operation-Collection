@@ -6,7 +6,7 @@
 // Dedication along with this software. If not, see
 // http://creativecommons.org/publicdomain/zero/1.0/.
 
-using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using JetBrains.Annotations;
 using Verse;
@@ -29,7 +29,8 @@ public class Patch : PatchOperation
 			return LogError(this, "is missing an operation value.");
 
 		PatchQueue.Enqueue(operation, LoadedModManager.RunningModsListForReading.Find(mod
-			=> ((List<PatchOperation>)mod.Patches).Contains(this))?.Name ?? "UNKNOWN");
+				=> (mod.Patches.Contains(this)))?.Name
+			?? "UNKNOWN");
 
 		return true;
 	}
